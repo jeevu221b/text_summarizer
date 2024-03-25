@@ -24,6 +24,6 @@ $ flask --app app_name run
 
     * Running on http://127.0.0.1:5000/
 
-## How to Use
 
-    The way to use vary from use method
+# Demo
+<img src="/Users/jeevu/Desktop/openAI/Screenshot 2024-03-25 at 11.28.55 AM.png" alt="My cool logo"/>
