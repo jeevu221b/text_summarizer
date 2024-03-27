@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    docker.image('python:3.9-slim').inside {
+                    docker.image('python:3.9').inside {
                         sh '''
                             pip install -r requirements.txt
                             pip install pytest
