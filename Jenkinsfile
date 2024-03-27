@@ -24,8 +24,12 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                   // Remove old containers with label 'my-flask-app'
+                    sh 'docker rm -f $(docker ps -a -q --filter "label=my-flask-app") || true'
+                    
+                    // Build and run new container
                     def dockerImage = docker.build("my-flask-app:${env.BUILD_NUMBER}", '.')
-                    dockerImage.run("-d -p 5000:5000") // Runs the Docker image in detached mode, mapping port 8080 on host to port 80 in the container
+                    dockerImage.run("-d -p 5000:5000 --label my-flask-app") // Runs the Docker image in detached mode, mapping port 5000 on host to port 5000 in the container and adds the 'my-flask-app' label
                 }
             }
         }
