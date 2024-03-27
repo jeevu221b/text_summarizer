@@ -11,10 +11,10 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    docker.image('python:3.9').inside {
+                    docker.image('python:3.9').inside('-u root') {
                         sh '''
-                            sudo pip install -r requirements.txt
-                            sudo pytest
+                            pip install -r requirements.txt
+                            pytest
                         '''
                     }
                 }
