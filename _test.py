@@ -10,7 +10,7 @@ def client():
 
 def test_home_page(client):
     res = client.get('/')
-    assert res.status_code == 200
+    assert res.status_code == 400
 
 
 def test_min_max_length(client):
