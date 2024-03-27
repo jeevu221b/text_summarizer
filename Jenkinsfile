@@ -24,7 +24,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build("my-flask-app:${env.BUILD_NUMBER}", '.')
+                    def dockerImage = docker.build("my-flask-app:${env.BUILD_NUMBER}", '.')
+                    dockerImage.run("-d -p 5000:5000") // Runs the Docker image in detached mode, mapping port 8080 on host to port 80 in the container
                 }
             }
         }
