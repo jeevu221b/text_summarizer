@@ -1,5 +1,6 @@
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 
+
 def summarizer(text, max_summary_length, min_summary_length):
     # initialize the model architecture and weights
     model = T5ForConditionalGeneration.from_pretrained("t5-base")
@@ -21,4 +22,3 @@ def summarizer(text, max_summary_length, min_summary_length):
     summary = tokenizer.decode(outputs[0])
     summary = summary.replace("<pad>", "").replace("</s>", "")
     return summary
-
