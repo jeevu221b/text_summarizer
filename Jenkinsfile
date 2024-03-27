@@ -1,14 +1,10 @@
 pipeline {
     agent any
 
-    triggers {
-        pollSCM('* * * * *') // Poll every minute for changes in the Git repository
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                checkout scm // Checkout the code from the Git repository
+                checkout scm
             }
         }
 
@@ -29,7 +25,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build('my-flask-app:latest', '.')
+                    docker.build("my-flask-app:${env.BUILD_NUMBER}", '.')
                 }
             }
         }
