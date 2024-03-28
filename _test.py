@@ -9,7 +9,7 @@ def client():
 
 
 def test_home_page(client):
-    # Home Page
+    # Home
     res = client.get('/')
     assert res.status_code == 200
 
