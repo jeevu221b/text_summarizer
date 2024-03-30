@@ -1,7 +1,7 @@
 
 ## Overview
 
-Abstract Summarizer API is a simple flask app with a POST endpoint which accepts input text, maximum and minimum summary length in the request. These params are then passed through a function that uses the T5 (Text-To-Text Transfer Transformer) model from the Hugging Face Transformers library which generates a condensed summary. The summarization process involves encoding the input text, generating the summary, and decoding the output to obtain the final summarized text.
+Text Summarizer is a simple flask app with a POST endpoint which accepts input text, maximum and minimum summary length in the request. These params are then passed through a function that uses the T5 (Text-To-Text Transfer Transformer) model from the Hugging Face Transformers library which generates a condensed abstract summary. The summarization process involves encoding the input text, generating the summary, and decoding the output to obtain the final summarized text.
 
 
 ## Libraries Used:
@@ -24,3 +24,7 @@ $ pip install requirements.txt
 $ flask --app app_name run
 
     * Running on http://127.0.0.1:5000/
+
+## Demo
+
+![Demo](./demo.png)
